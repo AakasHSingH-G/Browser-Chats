@@ -9,6 +9,36 @@ browsers talking directly to each other.
 
 ---
 
+## 📱 Mobile support (Android + iOS)
+
+- Fully responsive layout — works in any phone browser, no separate app needed
+- **Add to Home Screen** on both platforms gives you a full-screen, app-like
+  window (no browser address bar):
+  - **Android (Chrome):** ⋮ menu → *Add to Home screen* / *Install app*
+  - **iOS (Safari):** Share icon → *Add to Home Screen*
+- Fixes applied for a native-app feel: correct full-height layout on iOS Safari
+  (handles the address-bar show/hide jump), no accidental zoom when tapping a
+  text field, safe-area padding around the iPhone notch/home indicator, and
+  larger touch targets.
+
+### 🖼️ Changing the background image
+
+The background is controlled by one CSS variable near the top of `index.html`:
+
+```css
+:root {
+  --app-bg-image: url("..."); /* <- change this line */
+  --app-bg-opacity: 0.05;     /* how strong the image looks behind the UI */
+  --app-bg-size: 260px;       /* tile size if the image repeats */
+}
+```
+
+To use your own image:
+- **Local file:** put an image (e.g. `bg.jpg`) next to `index.html` and set
+  `--app-bg-image: url('bg.jpg');`
+- **Web image:** `--app-bg-image: url('https://example.com/your-image.jpg');`
+- **No background image:** `--app-bg-image: none;`
+
 ## ✨ Features
 
 - 💬 **Group text chat** — real-time messaging between everyone in the room
