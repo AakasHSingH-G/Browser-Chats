@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GURUDEV — Serverless P2P Group Chat</title>
+<!-- Tailwind CSS is precompiled at build time (see build notes at bottom of this file) -->
+<style>
+*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:JetBrains Mono,Fira Code,ui-monospace,SFMono-Regular,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}@media (min-width:1536px){.container{max-width:1536px}}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-y-0{top:0;bottom:0}.left-0{left:0}.right-2{right:.5rem}.right-4{right:1rem}.top-2{top:.5rem}.top-4{top:1rem}.z-20{z-index:20}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-2{margin-top:.5rem;margin-bottom:.5rem}.mb-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-2{margin-bottom:.5rem}.mb-2\.5{margin-bottom:.625rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:.25rem}.ml-auto{margin-left:auto}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:.375rem}.h-8{height:2rem}.h-screen{height:100vh}.min-h-0{min-height:0}.min-h-screen{min-height:100vh}.w-1\.5{width:.375rem}.w-60{width:15rem}.w-8{width:2rem}.w-\[92\%\]{width:92%}.w-full{width:100%}.min-w-0{min-width:0}.max-w-2xl{max-width:42rem}.max-w-\[78\%\]{max-width:78%}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.flex-shrink{flex-shrink:1}.shrink-0{flex-shrink:0}.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-start{justify-content:flex-start}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis}.truncate,.whitespace-nowrap{white-space:nowrap}.break-words{overflow-wrap:break-word}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.rounded-bl-sm{border-bottom-left-radius:.125rem}.rounded-br-sm{border-bottom-right-radius:.125rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-dashed{border-style:dashed}.border-amber\/30{border-color:rgba(255,180,84,.3)}.border-amber\/40{border-color:rgba(255,180,84,.4)}.border-crimson\/30{border-color:hsla(0,100%,71%,.3)}.border-crimson\/40{border-color:hsla(0,100%,71%,.4)}.border-line{--tw-border-opacity:1;border-color:rgb(34 48 52/var(--tw-border-opacity,1))}.border-signal\/25{border-color:rgba(92,242,192,.25)}.border-signal\/30{border-color:rgba(92,242,192,.3)}.border-signal\/40{border-color:rgba(92,242,192,.4)}.bg-amber{--tw-bg-opacity:1;background-color:rgb(255 180 84/var(--tw-bg-opacity,1))}.bg-amber\/10{background-color:rgba(255,180,84,.1)}.bg-crimson\/10{background-color:hsla(0,100%,71%,.1)}.bg-faint{--tw-bg-opacity:1;background-color:rgb(107 133 131/var(--tw-bg-opacity,1))}.bg-panel{--tw-bg-opacity:1;background-color:rgb(16 22 26/var(--tw-bg-opacity,1))}.bg-panel\/60{background-color:rgba(16,22,26,.6)}.bg-panel\/90{background-color:rgba(16,22,26,.9)}.bg-panel2{--tw-bg-opacity:1;background-color:rgb(21 29 33/var(--tw-bg-opacity,1))}.bg-signal{--tw-bg-opacity:1;background-color:rgb(92 242 192/var(--tw-bg-opacity,1))}.bg-signal\/10{background-color:rgba(92,242,192,.1)}.bg-void{--tw-bg-opacity:1;background-color:rgb(10 14 15/var(--tw-bg-opacity,1))}.p-3\.5{padding:.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-3\.5{padding-left:.875rem;padding-right:.875rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-10{padding-top:2.5rem;padding-bottom:2.5rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.py-8{padding-top:2rem;padding-bottom:2rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[10\.5px\]{font-size:10.5px}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[12px\]{font-size:12px}.text-\[13\.5px\]{font-size:13.5px}.text-\[13px\]{font-size:13px}.text-\[9\.5px\]{font-size:9.5px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-semibold{font-weight:600}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-\[0\.25em\]{letter-spacing:.25em}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-widest{letter-spacing:.1em}.text-amber{--tw-text-opacity:1;color:rgb(255 180 84/var(--tw-text-opacity,1))}.text-crimson{--tw-text-opacity:1;color:rgb(255 107 107/var(--tw-text-opacity,1))}.text-crimson\/90{color:hsla(0,100%,71%,.9)}.text-faint{--tw-text-opacity:1;color:rgb(107 133 131/var(--tw-text-opacity,1))}.text-faint\/70{color:rgba(107,133,131,.7)}.text-ink{--tw-text-opacity:1;color:rgb(207 227 224/var(--tw-text-opacity,1))}.text-signal{--tw-text-opacity:1;color:rgb(92 242 192/var(--tw-text-opacity,1))}.text-signal\/50{color:rgba(92,242,192,.5)}.text-signal\/80{color:rgba(92,242,192,.8)}.text-signal\/90{color:rgba(92,242,192,.9)}.text-void{--tw-text-opacity:1;color:rgb(10 14 15/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.placeholder-faint\/50::-moz-placeholder{color:rgba(107,133,131,.5)}.placeholder-faint\/50::placeholder{color:rgba(107,133,131,.5)}.placeholder-faint\/60::-moz-placeholder{color:rgba(107,133,131,.6)}.placeholder-faint\/60::placeholder{color:rgba(107,133,131,.6)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline{outline-style:solid}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.hover\:border-signal\/50:hover{border-color:rgba(92,242,192,.5)}.hover\:bg-crimson\/10:hover{background-color:hsla(0,100%,71%,.1)}.hover\:bg-panel2\/60:hover{background-color:rgba(21,29,33,.6)}.hover\:bg-signal\/10:hover{background-color:rgba(92,242,192,.1)}.hover\:bg-signal2:hover{--tw-bg-opacity:1;background-color:rgb(63 214 164/var(--tw-bg-opacity,1))}.hover\:text-ink:hover{--tw-text-opacity:1;color:rgb(207 227 224/var(--tw-text-opacity,1))}.focus\:border-signal\/60:focus{border-color:rgba(92,242,192,.6)}@media (min-width:640px){.sm\:inline{display:inline}.sm\:max-w-\[60\%\]{max-width:60%}}@media (min-width:1024px){.lg\:\!pointer-events-auto{pointer-events:auto!important}.lg\:\!static{position:static!important}.lg\:relative{position:relative}.lg\:hidden{display:none}.lg\:translate-x-0{--tw-translate-x:0px;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.lg\:\!transform-none{transform:none!important}.lg\:\!opacity-100{opacity:1!important}}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { background: #0a0e0f; }
+  body { font-family: 'Inter', sans-serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(92,242,192,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(92,242,192,0.035) 1px, transparent 1px);
+    background-size: 34px 34px;
+    background-position: center;
+  }
+
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #223034; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #2c3e42; }
+
+  textarea, input, select { outline: none; }
+
+  @keyframes pulseSignal {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .5; transform: scale(.85); }
+  }
+  .pulse { animation: pulseSignal 1.4s ease-in-out infinite; }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise-in { animation: riseIn .22s ease-out; }
+
+  @keyframes cardIn {
+    from { opacity: 0; transform: translateY(-6px) scale(.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .card-in { animation: cardIn .25s ease-out; }
+
+  @keyframes toastIn {
+    from { opacity: 0; transform: translateX(16px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .toast-in { animation: toastIn .25s ease-out; }
+
+  @keyframes shimmerBorder {
+    0%, 100% { border-color: rgba(92,242,192,0.25); }
+    50% { border-color: rgba(92,242,192,0.6); }
+  }
+  .shimmer-border { animation: shimmerBorder 1.8s ease-in-out infinite; }
+
+  .scan-line {
+    background: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 2px,
+      rgba(92,242,192,0.015) 3px, transparent 4px
+    );
+  }
+
+  .bubble-local {
+    background: linear-gradient(135deg, #163a30, #0f2a25);
+    border: 1px solid rgba(92,242,192,0.25);
+  }
+  .bubble-remote { background: #151d21; border: 1px solid #223034; }
+
+  .status-dot { width: 9px; height: 9px; border-radius: 999px; }
+  .avatar { width: 30px; height: 30px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #0a0e0f; flex-shrink: 0; }
+  .avatar-sm { width: 22px; height: 22px; font-size: 9.5px; }
+  .avatar-spacer { width: 30px; flex-shrink: 0; }
+
+  code.blob { word-break: break-all; white-space: pre-wrap; }
+
+  #membersPanel { transition: transform .25s ease, opacity .25s ease; }
+  .members-hidden { transform: translateX(-8px); opacity: 0; pointer-events: none; position: absolute; }
+
+  .invite-card { transition: opacity .3s ease, max-height .3s ease; }
+</style>
+</head>
+<body class="bg-void text-ink min-h-screen grid-bg scan-line">
+
+<!-- TOASTS -->
+<div id="toastRoot" class="fixed top-4 right-4 z-50 flex flex-col gap-2 w-[92%] max-w-sm"></div>
+
+<!-- ============================================================
+     SCREEN 1 — IDENTITY + ROOM SETUP
+============================================================= -->
+<div id="screenSetup" class="min-h-screen flex items-center justify-center px-4 py-10">
+  <div class="w-full max-w-md">
+    <div class="mb-8 text-center">
+      <div class="inline-flex items-center gap-2 mono text-[11px] tracking-[0.25em] text-signal/80 border border-signal/25 rounded-full px-3 py-1 mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-signal pulse"></span>
+        NO SERVER · NO ACCOUNT · NO CLOUD
+      </div>
+      <h1 class="text-3xl font-extrabold tracking-tight text-white">GURU<span class="text-signal">DEV</span></h1>
+      <p class="text-faint text-sm mt-2 leading-relaxed">Direct browser-to-browser chat over WebRTC.<br/>Everything below stays on your machine.</p>
+    </div>
+
+    <div class="bg-panel border border-line rounded-2xl p-6">
+      <label class="block mono text-[11px] tracking-widest text-faint mb-2">YOUR NICKNAME</label>
+      <input id="nicknameInput" type="text" maxlength="20" placeholder="e.g. Vishal"
+        class="w-full bg-panel2 border border-line focus:border-signal/60 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-faint/60 transition-colors" />
+
+      <div class="grid grid-cols-2 gap-3 mt-6">
+        <button id="btnGoHost" class="group border border-line hover:border-signal/50 bg-panel2 rounded-xl p-4 text-left transition-colors">
+          <div class="text-signal text-lg mb-1">⌁</div>
+          <div class="text-sm font-semibold text-white">Host a Room</div>
+          <div class="text-[11px] text-faint mt-1 leading-snug">Invite several people, one code each</div>
+        </button>
+        <button id="btnGoJoin" class="group border border-line hover:border-signal/50 bg-panel2 rounded-xl p-4 text-left transition-colors">
+          <div class="text-signal text-lg mb-1">⇢</div>
+          <div class="text-sm font-semibold text-white">Join a Room</div>
+          <div class="text-[11px] text-faint mt-1 leading-snug">Paste a code you received from a host</div>
+        </button>
+      </div>
+    </div>
+
+    <p class="mono text-[10px] text-faint/70 text-center mt-6 leading-relaxed">
+      WebRTC needs a one-time handshake (SDP + ICE) before a direct link opens —<br/>
+      a raw IP address alone can't do this inside a browser. GURUDEV moves that<br/>
+      handshake through copy-paste text instead of a signaling server.
+    </p>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN 2A — HOST CONSOLE (multi-invite slots)
+============================================================= -->
+<div id="screenHost" class="hidden min-h-screen px-4 py-8">
+  <div class="max-w-2xl mx-auto">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <div class="mono text-[11px] tracking-widest text-signal">HOST CONSOLE</div>
+        <h2 class="text-xl font-bold text-white mt-0.5">Invite peers to your room</h2>
+      </div>
+      <button id="hostBackBtn" class="mono text-[11px] text-faint hover:text-ink border border-line rounded-lg px-3 py-1.5">← back</button>
+    </div>
+
+    <!-- Batch invite generator -->
+    <div class="bg-panel border border-line rounded-2xl p-5 mb-5">
+      <div class="flex items-start justify-between gap-4 flex-wrap">
+        <div>
+          <div class="text-sm font-semibold text-white">Generate invite codes</div>
+          <div class="text-[12px] text-faint mt-1 leading-relaxed">Every person gets their own code. Make one now for each peer you expect — you can always add more later.</div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <select id="batchCount" class="mono text-[12px] bg-panel2 border border-line rounded-lg px-2.5 py-2 text-ink">
+            <option value="1">1 peer</option>
+            <option value="2">2 peers</option>
+            <option value="3">3 peers</option>
+            <option value="5">5 peers</option>
+            <option value="8">8 peers</option>
+          </select>
+          <button id="btnGenerateInvite" class="mono text-[12px] bg-signal text-void font-semibold px-3.5 py-2 rounded-lg hover:bg-signal2 transition-colors whitespace-nowrap">+ Generate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic invite slot cards render here -->
+    <div id="inviteSlotsList" class="space-y-3 mb-6"></div>
+
+    <div id="inviteEmptyHint" class="mono text-[12px] text-faint/70 text-center border border-dashed border-line rounded-xl py-8 mb-6">
+      No invites yet — generate one above to get your first Offer Code.
+    </div>
+
+    <button id="btnEnterHostChat" class="w-full mono text-[12px] text-ink border border-line hover:border-signal/50 rounded-xl py-3 transition-colors">
+      Enter Chat Room →
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN 2B — JOIN CONSOLE
+============================================================= -->
+<div id="screenJoin" class="hidden min-h-screen px-4 py-8">
+  <div class="max-w-2xl mx-auto">
+    <div class="flex items-center justify-between mb-6">
+      <div>
+        <div class="mono text-[11px] tracking-widest text-signal">JOIN CONSOLE</div>
+        <h2 class="text-xl font-bold text-white mt-0.5">Connect using a host's invite</h2>
+      </div>
+      <button id="joinBackBtn" class="mono text-[11px] text-faint hover:text-ink border border-line rounded-lg px-3 py-1.5">← back</button>
+    </div>
+
+    <div class="bg-panel border border-line rounded-2xl p-5 mb-4">
+      <div class="text-sm font-semibold text-white mb-1">Step 1 — Paste the host's Offer code</div>
+      <div class="text-[12px] text-faint mb-3">Paste exactly what the host sent you.</div>
+      <textarea id="offerInput" rows="4" placeholder="Paste OFFER code here…" class="mono blob w-full bg-panel2 border border-line focus:border-signal/60 rounded-lg px-3 py-2.5 text-[11px] text-ink placeholder-faint/50"></textarea>
+      <button id="btnGenerateAnswer" class="mt-3 mono text-[12px] bg-signal text-void font-semibold px-4 py-2 rounded-lg hover:bg-signal2 transition-colors">Generate Answer</button>
+    </div>
+
+    <div id="joinAnswerBox" class="hidden bg-panel border border-line rounded-2xl p-5">
+      <label class="block mono text-[10px] tracking-widest text-faint mb-1.5">STEP 2 — SEND THIS BACK TO HOST</label>
+      <div class="relative">
+        <textarea id="answerOutput" readonly rows="4" class="mono blob w-full bg-panel2 border border-line rounded-lg px-3 py-2.5 text-[11px] text-signal/90"></textarea>
+        <button id="btnCopyAnswer" class="absolute top-2 right-2 mono text-[10px] bg-void border border-line hover:border-signal/50 text-ink px-2 py-1 rounded">Copy</button>
+      </div>
+      <div class="flex items-center gap-2 mt-4 text-[12px] text-faint">
+        <span class="status-dot bg-amber pulse"></span>
+        Waiting for host to complete the connection…
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN 3 — CHAT ROOM (with members sidebar)
+============================================================= -->
+<div id="screenChat" class="hidden h-screen flex-col">
+  <div class="border-b border-line bg-panel px-4 py-3 flex items-center justify-between shrink-0">
+    <div class="flex items-center gap-3">
+      <button id="btnToggleMembers" class="lg:hidden w-8 h-8 rounded-lg bg-panel2 border border-line flex items-center justify-center text-ink text-sm">☰</button>
+      <div class="w-8 h-8 rounded-lg bg-panel2 border border-line flex items-center justify-center text-signal mono text-xs font-bold">◈</div>
+      <div>
+        <div class="text-sm font-semibold text-white leading-tight">GURUDEV <span id="roleTag" class="mono text-[10px] text-faint">/ host</span></div>
+        <div id="statusLine" class="mono text-[11px] text-faint flex items-center gap-1.5 mt-0.5">
+          <span id="statusDot" class="status-dot bg-faint"></span>
+          <span id="statusText">Disconnected</span>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span class="mono text-[11px] text-faint hidden sm:inline">you are <span id="myNickTag" class="text-ink">—</span></span>
+      <button id="btnLeaveRoom" class="mono text-[11px] text-crimson/90 border border-crimson/30 hover:bg-crimson/10 rounded-lg px-3 py-1.5">Leave</button>
+    </div>
+  </div>
+
+  <div class="flex-1 flex min-h-0 relative">
+    <!-- Members sidebar -->
+    <div id="membersPanel" class="w-60 shrink-0 border-r border-line bg-panel/60 flex flex-col lg:relative absolute inset-y-0 left-0 z-20 lg:translate-x-0 members-hidden lg:!transform-none lg:!opacity-100 lg:!pointer-events-auto lg:!static">
+      <div class="px-4 py-3 border-b border-line flex items-center justify-between">
+        <div class="mono text-[10px] tracking-widest text-faint">MEMBERS (<span id="memberCount">1</span>)</div>
+        <button id="btnCloseMembers" class="lg:hidden text-faint text-xs">✕</button>
+      </div>
+      <div id="membersList" class="flex-1 overflow-y-auto px-2 py-2 space-y-1"></div>
+      <div id="hostInviteReminder" class="hidden px-3 py-3 border-t border-line">
+        <button id="btnBackToInvites" class="w-full mono text-[10.5px] text-signal border border-signal/30 hover:bg-signal/10 rounded-lg py-2">+ Invite more people</button>
+      </div>
+    </div>
+
+    <!-- Messages + composer -->
+    <div class="flex-1 flex flex-col min-w-0">
+      <div id="threadBar" class="hidden items-center gap-2.5 px-4 py-2.5 border-b border-line bg-panel2/40 shrink-0">
+        <button id="btnBackToGroup" type="button" class="mono text-[11px] text-signal hover:text-signal2 shrink-0">← Group</button>
+        <div class="w-px h-4 bg-line"></div>
+        <div class="avatar avatar-sm" id="threadAvatar"></div>
+        <div class="text-[12.5px] text-ink font-semibold truncate" id="threadName"></div>
+        <div class="mono text-[10px] text-faint ml-1 shrink-0">· personal message</div>
+      </div>
+      <div id="messageList" class="flex-1 overflow-y-auto px-4 py-5 space-y-1"></div>
+      <div class="border-t border-line bg-panel px-4 py-3 shrink-0">
+        <form id="composerForm" class="flex items-center gap-2">
+          <input type="file" id="fileInput" class="hidden"
+            accept="image/*,video/*,application/pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip,.txt,.csv" multiple />
+          <button type="button" id="btnAttach" title="Send file"
+            class="mono text-[16px] text-faint hover:text-signal shrink-0 px-2 py-2.5 rounded-xl hover:bg-panel2/60 transition-colors">📎</button>
+          <input id="messageInput" type="text" autocomplete="off" placeholder="Message the room…"
+            class="flex-1 bg-panel2 border border-line focus:border-signal/60 rounded-xl px-4 py-2.5 text-sm text-white placeholder-faint/60" />
+          <button type="submit" class="mono text-[12px] bg-signal text-void font-semibold px-4 py-2.5 rounded-xl hover:bg-signal2 transition-colors">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==================================================================================
+   GURUDEV — Serverless WebRTC Group Chat
+   ----------------------------------------------------------------------------------
+   WHY THIS ARCHITECTURE:
+   Browsers cannot open a raw TCP/UDP socket to an arbitrary IP — that's a sandbox
+   restriction, so "connect by typing an IP" isn't literally possible from client JS.
+   WebRTC instead lets two browsers negotiate a DIRECT peer-to-peer DataChannel, but
+   that negotiation ("signaling") needs some way to swap two text blobs: an SDP
+   "offer" and an SDP "answer". Normally a signaling SERVER relays those blobs
+   automatically. Since we were told zero backend, GURUDEV serializes each blob to
+   base64 text and lets humans move it manually (paste in any chat app, email, etc).
+   Once both sides apply the other's blob, ICE negotiation completes and the browsers
+   open a DIRECT DataChannel — no server involved in the chat itself from that point.
+
+   TOPOLOGY — star/hub:
+   Every peer connects directly (real WebRTC DataChannel) to the HOST only. The host
+   then relays chat messages between peers in JS. This keeps manual signaling usable
+   for group chat — full mesh would require every pair of people to exchange codes,
+   which explodes past 2-3 users. The "server" role here is just another peer's
+   browser tab doing message fan-out, not any hosted infrastructure.
+
+   MULTI-USER INVITES (this version):
+   The host can generate several independent invite slots at once (a batch of Offer
+   codes), each tracked as its own pending connection. Every peer gets their own
+   unique Offer/Answer pair — codes are never reused between people. As each peer's
+   Answer comes back, the host completes that specific slot's handshake without
+   disturbing the others in flight.
+
+   STUN NOTE:
+   A public STUN server is used only so a browser can discover its own public-facing
+   address/port when peers sit behind different NATs/routers — no chat or signaling
+   data passes through it. Same-LAN only? Set ICE_SERVERS to [] below.
+================================================================================== */
+
+const ICE_SERVERS = [
+  { urls: 'stun:stun.l.google.com:19302' }
+];
+
+const AVATAR_PALETTE = ['#5CF2C0', '#ffb454', '#7ea8ff', '#ff9ec6', '#c792ea', '#79e0e0', '#f2c85c', '#ff8a65'];
+
+function colorForKey(key) {
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) hash = (hash * 31 + key.charCodeAt(i)) >>> 0;
+  return AVATAR_PALETTE[hash % AVATAR_PALETTE.length];
+}
+function initialsFor(name) {
+  if (!name) return '?';
+  const parts = name.trim().split(/\s+/);
+  return (parts[0][0] + (parts[1]?.[0] || '')).toUpperCase();
+}
+
+// ------------------------------------------------------------------
+// Global state
+// ------------------------------------------------------------------
+const state = {
+  role: null,
+  nickname: '',
+  myId: crypto.randomUUID().slice(0, 8),
+  peers: new Map(),        // HOST-only: peerId -> { pc, dc, nickname, status, label }
+  hostConn: { pc: null, dc: null },
+  roster: [],               // { id, nickname } for everyone currently in the room
+  inviteCounter: 0,
+  lastRenderedKey: null,    // for message grouping in the UI
+  incomingFiles: new Map(), // fileId -> { meta, chunks: [], received }
+  threads: new Map([['group', []]]), // 'group' or a routing id -> array of render records (chat history per thread)
+  threadMeta: new Map(),    // routing id -> display nickname, for personal-message thread headers
+  unread: new Map(),        // routing id -> unread count for personal threads not currently open
+  activeThread: 'group',    // 'group' or a peer's routing id when viewing a personal thread
+};
+
+// File-transfer tuning: chunks are sent as base64 text over the DataChannel,
+// so keep them small enough that every browser's message-size limit is safe.
+const FILE_CHUNK_SIZE = 16 * 1024;       // bytes of raw file data per chunk
+const MAX_FILE_SIZE = 30 * 1024 * 1024;  // 30MB cap per file (manual signaling + relay isn't built for huge transfers)
+
+const $ = (id) => document.getElementById(id);
+const screens = { setup: $('screenSetup'), host: $('screenHost'), join: $('screenJoin'), chat: $('screenChat') };
+function showScreen(name) {
+  Object.entries(screens).forEach(([k, el]) => {
+    el.classList.toggle('hidden', k !== name);
+    if (k === 'chat') el.classList.toggle('flex', k === name);
+  });
+}
+
+function toast(message, kind = 'error') {
+  const colors = {
+    error: 'border-crimson/40 text-crimson bg-crimson/10',
+    info: 'border-signal/40 text-signal bg-signal/10',
+    warn: 'border-amber/40 text-amber bg-amber/10',
+  };
+  const el = document.createElement('div');
+  el.className = `toast-in mono text-[12px] px-4 py-3 rounded-xl border ${colors[kind]} backdrop-blur bg-panel/90 shadow-lg`;
+  el.textContent = message;
+  $('toastRoot').appendChild(el);
+  setTimeout(() => {
+    el.style.transition = 'opacity .3s, transform .3s';
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(16px)';
+    setTimeout(() => el.remove(), 300);
+  }, 4200);
+}
+
+function encodeBlob(obj) { return btoa(encodeURIComponent(JSON.stringify(obj))); }
+function decodeBlob(text) { return JSON.parse(decodeURIComponent(atob(text.trim()))); }
+
+function waitForIceGatheringComplete(pc) {
+  return new Promise((resolve) => {
+    if (pc.iceGatheringState === 'complete') return resolve();
+    function check() {
+      if (pc.iceGatheringState === 'complete') {
+        pc.removeEventListener('icegatheringstatechange', check);
+        resolve();
+      }
+    }
+    pc.addEventListener('icegatheringstatechange', check);
+    setTimeout(resolve, 4000);
+  });
+}
+
+function copyToClipboard(text, msg) {
+  if (!text) return;
+  navigator.clipboard.writeText(text).then(
+    () => toast(msg, 'info'),
+    () => toast('Clipboard blocked — select and copy manually.', 'warn')
+  );
+}
+
+// ==================================================================
+// SETUP SCREEN
+// ==================================================================
+$('btnGoHost').addEventListener('click', () => { if (captureNickname()) { state.role = 'host'; showScreen('host'); } });
+$('btnGoJoin').addEventListener('click', () => { if (captureNickname()) { state.role = 'peer'; showScreen('join'); } });
+function captureNickname() {
+  const val = $('nicknameInput').value.trim();
+  if (!val) { toast('Enter a nickname first.', 'warn'); return false; }
+  state.nickname = val.slice(0, 20);
+  return true;
+}
+$('hostBackBtn').addEventListener('click', () => showScreen('setup'));
+$('joinBackBtn').addEventListener('click', () => showScreen('setup'));
+
+// ==================================================================
+// HOST FLOW — multi-invite slots
+// ==================================================================
+$('btnGenerateInvite').addEventListener('click', async () => {
+  const count = parseInt($('batchCount').value, 10) || 1;
+  for (let i = 0; i < count; i++) {
+    await createInviteSlot();
+  }
+});
+
+async function createInviteSlot() {
+  try {
+    const peerId = crypto.randomUUID().slice(0, 8);
+    state.inviteCounter += 1;
+    const label = `Invite #${state.inviteCounter}`;
+
+    const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS });
+    const dc = pc.createDataChannel('chat');
+    attachDataChannelHandlers(dc, peerId);
+    attachConnectionStateHandlers(pc, peerId);
+
+    const entry = { pc, dc, nickname: null, status: 'pending', label };
+    state.peers.set(peerId, entry);
+    renderInviteSlot(peerId, entry, null);
+    $('inviteEmptyHint').classList.add('hidden');
+
+    const offer = await pc.createOffer();
+    await pc.setLocalDescription(offer);
+    await waitForIceGatheringComplete(pc);
+
+    const blob = encodeBlob({ kind: 'offer', from: state.myId, sdp: pc.localDescription });
+    renderInviteSlot(peerId, entry, blob);
+  } catch (err) {
+    console.error(err);
+    toast('Could not generate invite: ' + err.message, 'error');
+  }
+}
+
+function renderInviteSlot(peerId, entry, offerBlob) {
+  let card = document.querySelector(`[data-peer-id="${peerId}"]`);
+  if (!card) {
+    card = document.createElement('div');
+    card.className = 'invite-card card-in bg-panel border border-line rounded-2xl p-4';
+    card.dataset.peerId = peerId;
+    $('inviteSlotsList').prepend(card);
+  }
+
+  if (entry.status === 'connected') {
+    card.className = 'invite-card card-in bg-panel2 border border-signal/30 rounded-2xl p-3.5 flex items-center gap-3';
+    card.innerHTML = `
+      <div class="avatar avatar-sm" style="background:${colorForKey(entry.nickname || peerId)}">${initialsFor(entry.nickname)}</div>
+      <div class="flex-1 min-w-0">
+        <div class="text-[13px] font-semibold text-white truncate">${escapeHtml(entry.nickname || 'Connected peer')}</div>
+        <div class="mono text-[10px] text-signal">${entry.label} · connected</div>
+      </div>
+      <span class="status-dot bg-signal"></span>
+    `;
+    return;
+  }
+
+  const statusPill = offerBlob
+    ? `<span class="mono text-[10px] px-2 py-0.5 rounded-full border border-amber/30 text-amber">Waiting for answer</span>`
+    : `<span class="mono text-[10px] px-2 py-0.5 rounded-full border border-line text-faint">Generating…</span>`;
+
+  card.innerHTML = `
+    <div class="flex items-center justify-between mb-2.5">
+      <div class="mono text-[11px] tracking-widest text-signal">${entry.label.toUpperCase()}</div>
+      ${statusPill}
+    </div>
+    ${offerBlob ? `
+      <label class="block mono text-[10px] tracking-widest text-faint mb-1.5">OFFER CODE — copy & send to this peer</label>
+      <div class="relative mb-3">
+        <textarea readonly rows="3" class="mono blob w-full bg-panel2 border border-line rounded-lg px-3 py-2.5 text-[11px] text-signal/90 offer-text">${offerBlob}</textarea>
+        <button data-action="copy-offer" class="absolute top-2 right-2 mono text-[10px] bg-void border border-line hover:border-signal/50 text-ink px-2 py-1 rounded">Copy</button>
+      </div>
+      <label class="block mono text-[10px] tracking-widest text-faint mb-1.5">PASTE THEIR ANSWER CODE</label>
+      <textarea rows="3" placeholder="Paste ANSWER code here…" class="mono blob w-full bg-panel2 border border-line focus:border-signal/60 rounded-lg px-3 py-2.5 text-[11px] text-ink placeholder-faint/50 answer-text"></textarea>
+      <button data-action="connect" class="mt-2.5 mono text-[12px] bg-signal text-void font-semibold px-4 py-2 rounded-lg hover:bg-signal2 transition-colors">Connect This Peer</button>
+    ` : `<div class="mono text-[11px] text-faint">Building offer…</div>`}
+  `;
+}
+
+// Event delegation for dynamic invite cards
+$('inviteSlotsList').addEventListener('click', async (e) => {
+  const btn = e.target.closest('[data-action]');
+  if (!btn) return;
+  const card = e.target.closest('[data-peer-id]');
+  const peerId = card.dataset.peerId;
+  const entry = state.peers.get(peerId);
+  if (!entry) return;
+
+  if (btn.dataset.action === 'copy-offer') {
+    const text = card.querySelector('.offer-text').value;
+    copyToClipboard(text, 'Offer code copied.');
+  }
+
+  if (btn.dataset.action === 'connect') {
+    const raw = card.querySelector('.answer-text').value.trim();
+    if (!raw) return toast('Paste this peer\'s answer code first.', 'warn');
+    try {
+      const parsed = decodeBlob(raw);
+      if (parsed.kind !== 'answer') throw new Error('That does not look like an answer code.');
+      await entry.pc.setRemoteDescription(parsed.sdp);
+      toast('Answer accepted — finishing handshake…', 'info');
+      btn.disabled = true;
+      btn.textContent = 'Connecting…';
+    } catch (err) {
+      console.error(err);
+      toast('Connection failed: ' + err.message, 'error');
+    }
+  }
+});
+
+$('btnEnterHostChat').addEventListener('click', () => enterChatRoom('host'));
+$('btnBackToInvites').addEventListener('click', () => showScreen('host'));
+
+// ==================================================================
+// PEER (JOIN) FLOW
+// ==================================================================
+$('btnGenerateAnswer').addEventListener('click', async () => {
+  const raw = $('offerInput').value.trim();
+  if (!raw) return toast('Paste the host\'s offer code first.', 'warn');
+  try {
+    const parsed = decodeBlob(raw);
+    if (parsed.kind !== 'offer') throw new Error('That does not look like an offer code.');
+
+    const pc = new RTCPeerConnection({ iceServers: ICE_SERVERS });
+    state.hostConn.pc = pc;
+    pc.ondatachannel = (ev) => {
+      state.hostConn.dc = ev.channel;
+      attachDataChannelHandlers(ev.channel, 'host');
+    };
+    attachConnectionStateHandlers(pc, 'host');
+
+    await pc.setRemoteDescription(parsed.sdp);
+    const answer = await pc.createAnswer();
+    await pc.setLocalDescription(answer);
+    await waitForIceGatheringComplete(pc);
+
+    const blob = encodeBlob({ kind: 'answer', from: state.myId, sdp: pc.localDescription });
+    $('answerOutput').value = blob;
+    $('joinAnswerBox').classList.remove('hidden');
+  } catch (err) {
+    console.error(err);
+    toast('Could not process offer: ' + err.message, 'error');
+  }
+});
+$('btnCopyAnswer').addEventListener('click', () => copyToClipboard($('answerOutput').value, 'Answer code copied.'));
+
+// ==================================================================
+// SHARED: DataChannel + connection-state wiring
+// ==================================================================
+function attachDataChannelHandlers(dc, remoteId) {
+  dc.addEventListener('open', () => {
+    sendRaw(dc, { type: 'hello', nickname: state.nickname, id: state.myId });
+
+    if (state.role === 'host') {
+      const entry = state.peers.get(remoteId);
+      if (entry) entry.status = 'connected';
+    } else {
+      enterChatRoom('peer');
+    }
+    updateStatusBar();
+  });
+
+  dc.addEventListener('close', () => handlePeerDisconnect(remoteId));
+  dc.addEventListener('error', (e) => { console.error('DataChannel error', e); toast('A connection dropped unexpectedly.', 'error'); });
+  dc.addEventListener('message', (ev) => {
+    let msg;
+    try { msg = JSON.parse(ev.data); } catch { return; }
+    handleIncomingMessage(msg, remoteId);
+  });
+}
+
+function attachConnectionStateHandlers(pc, remoteId) {
+  pc.addEventListener('connectionstatechange', () => {
+    updateStatusBar();
+    if (pc.connectionState === 'failed') {
+      toast(`Connection to ${remoteId === 'host' ? 'host' : 'peer'} failed — network unreachable.`, 'error');
+      handlePeerDisconnect(remoteId);
+    }
+    if (pc.connectionState === 'disconnected') toast('Peer connection lost.', 'warn');
+  });
+}
+
+function sendRaw(dc, obj) { if (dc && dc.readyState === 'open') dc.send(JSON.stringify(obj)); }
+
+// ==================================================================
+// MESSAGE ROUTING + ROSTER
+// ==================================================================
+function handleIncomingMessage(msg, remoteId) {
+  if (msg.type === 'hello') {
+    if (state.role === 'host') {
+      const entry = state.peers.get(remoteId);
+      if (entry) { entry.nickname = msg.nickname; entry.status = 'connected'; renderInviteSlot(remoteId, entry, null); }
+      const text = `${msg.nickname} joined the room.`;
+      pushRecord('group', { kind: 'system', text });
+      broadcastToAllPeers({ type: 'system', text, ts: Date.now() }, remoteId, true);
+      broadcastRoster();
+      renderMembers();
+    }
+    return;
+  }
+  if (msg.type === 'chat') {
+    pushRecord('group', { kind: 'chat', msg, isLocal: false });
+    if (state.role === 'host') broadcastToAllPeers(msg, remoteId, false);
+    return;
+  }
+  if (msg.type === 'file-meta') {
+    state.incomingFiles.set(msg.fileId, { meta: msg, chunks: new Array(msg.total), received: 0 });
+    if (state.role === 'host') broadcastToAllPeers(msg, remoteId, false);
+    return;
+  }
+  if (msg.type === 'file-chunk') {
+    const entry = state.incomingFiles.get(msg.fileId);
+    if (entry && entry.chunks[msg.index] === undefined) {
+      entry.chunks[msg.index] = msg.data;
+      entry.received++;
+      if (entry.received === entry.meta.total) {
+        assembleAndRenderFile(entry);
+        state.incomingFiles.delete(msg.fileId);
+      }
+    }
+    if (state.role === 'host') broadcastToAllPeers(msg, remoteId, false);
+    return;
+  }
+  // Personal / direct message — routed to exactly ONE recipient, never broadcast to the group.
+  // No separate connection is used: it always rides the existing star-topology links (peer<->host<->peer).
+  if (msg.type === 'dm') {
+    if (state.role === 'host') {
+      // remoteId is the routing id we (the host) assigned this connection — treat it as the
+      // authoritative sender identity, regardless of what the peer itself claims.
+      const from = remoteId;
+      const fromNickname = msg.fromNickname || (state.peers.get(remoteId)?.nickname) || 'Someone';
+      if (msg.to === state.myId) {
+        // Addressed to me (the host).
+        setThreadMeta(from, fromNickname);
+        pushRecord(from, { kind: 'chat', msg: { id: from, nickname: fromNickname, text: msg.text, ts: msg.ts }, isLocal: false });
+        bumpUnread(from, fromNickname);
+      } else {
+        const targetEntry = state.peers.get(msg.to);
+        if (targetEntry && targetEntry.dc.readyState === 'open') {
+          sendRaw(targetEntry.dc, { type: 'dm', to: msg.to, from, fromNickname, text: msg.text, ts: msg.ts });
+        }
+      }
+    } else {
+      // I'm a peer. My only link is to the host, but msg.from was stamped by the host with the
+      // real sender's routing id, so I can thread it correctly and reply to the right person later.
+      const from = msg.from;
+      const fromNickname = msg.fromNickname || 'Someone';
+      setThreadMeta(from, fromNickname);
+      pushRecord(from, { kind: 'chat', msg: { id: from, nickname: fromNickname, text: msg.text, ts: msg.ts }, isLocal: false });
+      bumpUnread(from, fromNickname);
+    }
+    return;
+  }
+  if (msg.type === 'system') { pushRecord('group', { kind: 'system', text: msg.text }); return; }
+  if (msg.type === 'roster') {
+    state.roster = msg.peers;
+    renderMembers();
+    updateStatusBar();
+    return;
+  }
+}
+
+// Sends to every connected peer EXCEPT excludeId; if includeExclude also true, sends to all.
+function broadcastToAllPeers(payload, excludeId, alsoRenderLocal) {
+  for (const [pid, entry] of state.peers.entries()) {
+    if (pid !== excludeId && entry.dc.readyState === 'open') sendRaw(entry.dc, payload);
+  }
+}
+
+function currentRoster() {
+  const list = [{ id: state.myId, nickname: state.nickname + (state.role === 'host' ? ' (host)' : '') }];
+  for (const [peerId, entry] of state.peers.entries()) {
+    if (entry.status === 'connected') list.push({ id: peerId, nickname: entry.nickname });
+  }
+  return list;
+}
+function broadcastRoster() {
+  const roster = currentRoster();
+  state.roster = roster;
+  const payload = { type: 'roster', peers: roster };
+  for (const entry of state.peers.values()) sendRaw(entry.dc, payload);
+  renderMembers();
+}
+
+function handlePeerDisconnect(remoteId) {
+  if (state.role === 'host') {
+    const entry = state.peers.get(remoteId);
+    const name = entry?.nickname || 'A peer';
+    if (entry) { state.peers.delete(remoteId); }
+    pushRecord('group', { kind: 'system', text: `${name} disconnected.` });
+    broadcastToAllPeers({ type: 'system', text: `${name} disconnected.`, ts: Date.now() }, null, true);
+    broadcastRoster();
+    // If I was viewing a personal thread with this person, drop back to the group view.
+    if (state.activeThread === remoteId) switchThread('group');
+  } else {
+    pushRecord('group', { kind: 'system', text: 'Disconnected from host.' });
+    toast('Lost connection to the host.', 'error');
+  }
+  updateStatusBar();
+}
+
+// ==================================================================
+// ENTER CHAT ROOM / MEMBERS SIDEBAR
+// ==================================================================
+function enterChatRoom(role) {
+  showScreen('chat');
+  $('myNickTag').textContent = state.nickname;
+  $('roleTag').textContent = role === 'host' ? '/ host' : '/ peer';
+  $('hostInviteReminder').classList.toggle('hidden', role !== 'host');
+  if (role === 'host') { state.roster = currentRoster(); renderMembers(); }
+  state.activeThread = 'group';
+  $('threadBar').classList.add('hidden');
+  $('threadBar').classList.remove('flex');
+  updateStatusBar();
+  $('messageInput').focus();
+}
+
+function renderMembers() {
+  const list = state.roster.length ? state.roster : currentRoster();
+  $('memberCount').textContent = list.length;
+  const container = $('membersList');
+  container.innerHTML = '';
+  list.forEach((m) => {
+    const isMe = m.id === state.myId || m.nickname === state.nickname || m.nickname === state.nickname + ' (host)';
+    const unread = !isMe ? (state.unread.get(m.id) || 0) : 0;
+    const row = document.createElement('div');
+    row.className = `flex items-center gap-2.5 px-2 py-2 rounded-lg transition-colors ${isMe ? '' : 'cursor-pointer hover:bg-panel2/60'}`;
+    row.innerHTML = `
+      <div class="avatar avatar-sm" style="background:${colorForKey(m.nickname)}">${initialsFor(m.nickname)}</div>
+      <div class="text-[12.5px] text-ink truncate flex-1">${escapeHtml(m.nickname)}${isMe ? ' <span class="text-faint">(you)</span>' : ''}</div>
+      ${unread > 0 ? `<span class="mono text-[9px] bg-signal text-void rounded-full px-1.5 py-0.5 font-bold shrink-0">${unread}</span>` : ''}
+      <span class="status-dot bg-signal shrink-0"></span>
+    `;
+    if (!isMe) row.addEventListener('click', () => openDirectThread(m.id, m.nickname));
+    container.appendChild(row);
+  });
+}
+
+$('btnToggleMembers').addEventListener('click', () => $('membersPanel').classList.toggle('members-hidden'));
+$('btnCloseMembers').addEventListener('click', () => $('membersPanel').classList.add('members-hidden'));
+
+$('btnLeaveRoom').addEventListener('click', () => {
+  if (state.role === 'host') {
+    for (const entry of state.peers.values()) { try { entry.dc.close(); entry.pc.close(); } catch {} }
+    state.peers.clear();
+  } else if (state.hostConn.pc) {
+    try { state.hostConn.dc?.close(); state.hostConn.pc.close(); } catch {}
+    state.hostConn = { pc: null, dc: null };
+  }
+  $('messageList').innerHTML = '';
+  $('inviteSlotsList').innerHTML = '';
+  $('inviteEmptyHint').classList.remove('hidden');
+  $('answerOutput').value = '';
+  $('offerInput').value = '';
+  $('joinAnswerBox').classList.add('hidden');
+  $('threadBar').classList.add('hidden');
+  $('threadBar').classList.remove('flex');
+  state.inviteCounter = 0;
+  state.roster = [];
+  state.lastRenderedKey = null;
+  state.incomingFiles.clear();
+  state.threads = new Map([['group', []]]);
+  state.threadMeta.clear();
+  state.unread.clear();
+  state.activeThread = 'group';
+  showScreen('setup');
+});
+
+// ==================================================================
+// STATUS BAR
+// ==================================================================
+function updateStatusBar() {
+  const dot = $('statusDot');
+  const text = $('statusText');
+  dot.classList.remove('bg-faint', 'bg-amber', 'bg-signal', 'pulse');
+  let activeCount = 0;
+
+  if (state.role === 'host') {
+    activeCount = [...state.peers.values()].filter((e) => e.dc && e.dc.readyState === 'open').length;
+  } else if (state.role === 'peer') {
+    activeCount = state.hostConn.dc && state.hostConn.dc.readyState === 'open' ? 1 : 0;
+  }
+
+  if (activeCount === 0) {
+    const isTryingToConnect =
+      (state.role === 'host' && state.peers.size > 0) ||
+      (state.role === 'peer' && state.hostConn.pc && state.hostConn.pc.connectionState !== 'connected');
+    if (isTryingToConnect) { dot.classList.add('bg-amber', 'pulse'); text.textContent = 'Connecting…'; }
+    else { dot.classList.add('bg-faint'); text.textContent = 'Disconnected'; }
+  } else {
+    dot.classList.add('bg-signal');
+    const totalActive = state.role === 'peer' ? Math.max(state.roster.length - 1, activeCount) : activeCount;
+    text.textContent = `Connected (${totalActive} Peer${totalActive !== 1 ? 's' : ''} Active)`;
+  }
+}
+
+// ==================================================================
+// CHAT COMPOSER
+// ==================================================================
+$('composerForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const input = $('messageInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  if (state.activeThread === 'group') {
+    const msg = { type: 'chat', id: state.myId, nickname: state.nickname, text, ts: Date.now() };
+    pushRecord('group', { kind: 'chat', msg, isLocal: true });
+    sendToNetwork(msg);
+  } else {
+    sendDirectMessage(state.activeThread, text);
+  }
+  input.value = '';
+});
+
+// Sends one message object to the right place: all peers if I'm host, or up to the host if I'm a peer.
+function sendToNetwork(payload) {
+  if (state.role === 'host') broadcastToAllPeers(payload, null, false);
+  else if (state.hostConn.dc) sendRaw(state.hostConn.dc, payload);
+}
+
+// ==================================================================
+// PERSONAL / DIRECT MESSAGES (still routed over the existing star topology — no new connection)
+// ==================================================================
+function sendDirectMessage(targetId, text) {
+  const ts = Date.now();
+  pushRecord(targetId, { kind: 'chat', msg: { id: 'local', nickname: state.nickname, text, ts }, isLocal: true });
+
+  const dm = { type: 'dm', to: targetId, from: state.myId, fromNickname: state.nickname, text, ts };
+  if (state.role === 'host') {
+    const entry = state.peers.get(targetId);
+    if (entry && entry.dc.readyState === 'open') sendRaw(entry.dc, dm);
+    else toast('That person is no longer connected.', 'warn');
+  } else if (state.hostConn.dc) {
+    sendRaw(state.hostConn.dc, dm); // host relays it to the right person, doesn't broadcast it
+  }
+}
+
+function openDirectThread(targetId, nickname) {
+  switchThread(targetId, nickname);
+  if (window.innerWidth < 1024) $('membersPanel').classList.add('members-hidden');
+  $('messageInput').focus();
+}
+
+$('btnBackToGroup').addEventListener('click', () => switchThread('group'));
+
+function setThreadMeta(key, nickname) {
+  if (key !== 'group' && nickname) state.threadMeta.set(key, nickname);
+}
+
+function bumpUnread(key, nickname) {
+  if (key === state.activeThread) return;
+  state.unread.set(key, (state.unread.get(key) || 0) + 1);
+  renderMembers();
+  toast(`New personal message from ${nickname}`, 'info');
+}
+
+function ensureThread(key) {
+  if (!state.threads.has(key)) state.threads.set(key, []);
+  return state.threads.get(key);
+}
+
+// Adds a render record to a thread's history, and paints it immediately if that thread is open.
+function pushRecord(threadKey, record) {
+  ensureThread(threadKey).push(record);
+  if (threadKey === state.activeThread) renderRecord(record);
+}
+
+function renderRecord(record) {
+  if (record.kind === 'chat') renderChatMessage(record.msg, record.isLocal);
+  else if (record.kind === 'file') renderFileMessage(record.meta, record.isLocal, record.url);
+  else if (record.kind === 'system') renderSystemMessage(record.text);
+}
+
+function switchThread(key, nickname) {
+  state.activeThread = key;
+  state.unread.set(key, 0);
+  state.lastRenderedKey = null;
+  $('messageList').innerHTML = '';
+  ensureThread(key).forEach(renderRecord);
+
+  const bar = $('threadBar');
+  if (key === 'group') {
+    bar.classList.add('hidden');
+    bar.classList.remove('flex');
+    $('messageInput').placeholder = 'Message the room…';
+  } else {
+    const label = nickname || state.threadMeta.get(key) || 'Unknown';
+    setThreadMeta(key, label);
+    bar.classList.remove('hidden');
+    bar.classList.add('flex');
+    $('threadName').textContent = label;
+    const av = $('threadAvatar');
+    av.textContent = initialsFor(label);
+    av.style.background = colorForKey(label);
+    $('messageInput').placeholder = `Message ${label} privately…`;
+  }
+  renderMembers();
+  autoScroll();
+}
+
+// ==================================================================
+// FILE / IMAGE / VIDEO / DOCUMENT SENDING
+// ==================================================================
+$('btnAttach').addEventListener('click', () => {
+  const noPeers = (state.role === 'host' && state.peers.size === 0) ||
+                   (state.role === 'peer' && (!state.hostConn.dc || state.hostConn.dc.readyState !== 'open'));
+  if (noPeers) { toast('No one is connected yet.', 'warn'); return; }
+  $('fileInput').click();
+});
+
+$('fileInput').addEventListener('change', async (e) => {
+  const files = Array.from(e.target.files || []);
+  e.target.value = ''; // allow re-selecting the same file later
+  for (const file of files) {
+    await sendFile(file);
+  }
+});
+
+function humanFileSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  const units = ['KB', 'MB', 'GB'];
+  let val = bytes, i = -1;
+  do { val /= 1024; i++; } while (val >= 1024 && i < units.length - 1);
+  return val.toFixed(1) + ' ' + units[i];
+}
+
+function arrayBufferToBase64(bytes) {
+  let binary = '';
+  const chunkSize = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunkSize));
+  }
+  return btoa(binary);
+}
+
+function base64ToBytes(b64) {
+  const binary = atob(b64);
+  const bytes = new Uint8Array(binary.length);
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+  return bytes;
+}
+
+async function sendFile(file) {
+  if (file.size > MAX_FILE_SIZE) {
+    toast(`"${file.name}" is too big — max ${humanFileSize(MAX_FILE_SIZE)} per file.`, 'warn');
+    return;
+  }
+
+  const fileId = crypto.randomUUID().slice(0, 8);
+  const buffer = await file.arrayBuffer();
+  const bytes = new Uint8Array(buffer);
+  const total = Math.max(1, Math.ceil(bytes.length / FILE_CHUNK_SIZE));
+
+  const meta = {
+    type: 'file-meta', fileId, id: state.myId, nickname: state.nickname,
+    name: file.name, mime: file.type || 'application/octet-stream',
+    size: file.size, total, ts: Date.now(),
+  };
+
+  // Show it locally right away using a local blob URL — no need to wait on the network for our own bubble.
+  const localUrl = URL.createObjectURL(file);
+  pushRecord('group', { kind: 'file', meta, isLocal: true, url: localUrl });
+
+  sendToNetwork(meta);
+  for (let i = 0; i < total; i++) {
+    const slice = bytes.subarray(i * FILE_CHUNK_SIZE, (i + 1) * FILE_CHUNK_SIZE);
+    sendToNetwork({ type: 'file-chunk', fileId, index: i, data: arrayBufferToBase64(slice) });
+    if (i % 8 === 7) await new Promise((r) => setTimeout(r, 0)); // yield so the UI/DataChannel don't choke on huge files
+  }
+}
+
+function assembleAndRenderFile(entry) {
+  const parts = entry.chunks.map((c) => base64ToBytes(c || ''));
+  const blob = new Blob(parts, { type: entry.meta.mime });
+  const url = URL.createObjectURL(blob);
+  pushRecord('group', { kind: 'file', meta: entry.meta, isLocal: false, url });
+}
+
+// ==================================================================
+// RENDERING — messages with avatar + consecutive-message grouping
+// ==================================================================
+function escapeHtml(str) {
+  const d = document.createElement('div');
+  d.textContent = str ?? '';
+  return d.innerHTML;
+}
+function fmtTime(ts) { return new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); }
+
+// Shared row/bubble scaffold for both text and file messages — buildBody fills in the bubble's content.
+function renderMessageRow(msg, isLocal, buildBody) {
+  const list = $('messageList');
+  const senderKey = isLocal ? 'local' : (msg.id || msg.nickname);
+  const grouped = state.lastRenderedKey === senderKey;
+  state.lastRenderedKey = senderKey;
+
+  const row = document.createElement('div');
+  row.className = `rise-in flex items-end gap-2 ${isLocal ? 'justify-end' : 'justify-start'} ${grouped ? 'mt-0.5' : 'mt-3'}`;
+
+  if (!isLocal) {
+    if (grouped) {
+      row.innerHTML += `<div class="avatar-spacer"></div>`;
+    } else {
+      row.innerHTML += `<div class="avatar" style="background:${colorForKey(msg.nickname)}">${initialsFor(msg.nickname)}</div>`;
+    }
+  }
+
+  const bubbleWrap = document.createElement('div');
+  bubbleWrap.className = `max-w-[78%] sm:max-w-[60%] flex flex-col ${isLocal ? 'items-end' : 'items-start'}`;
+
+  if (!isLocal && !grouped) {
+    const nameEl = document.createElement('div');
+    nameEl.className = 'mono text-[10px] tracking-wide text-signal/80 mb-1 ml-1';
+    nameEl.textContent = msg.nickname || 'unknown';
+    bubbleWrap.appendChild(nameEl);
+  }
+
+  const bubble = document.createElement('div');
+  bubble.className = `rounded-2xl px-4 py-2.5 ${isLocal ? 'bubble-local rounded-br-sm' : 'bubble-remote rounded-bl-sm'}`;
+
+  buildBody(bubble);
+
+  const time = document.createElement('div');
+  time.className = `mono text-[9.5px] mt-1 ${isLocal ? 'text-signal/50 text-right' : 'text-faint/70'}`;
+  time.textContent = fmtTime(msg.ts || Date.now());
+  bubble.appendChild(time);
+
+  bubbleWrap.appendChild(bubble);
+  row.appendChild(bubbleWrap);
+  list.appendChild(row);
+  autoScroll();
+}
+
+function renderChatMessage(msg, isLocal) {
+  renderMessageRow(msg, isLocal, (bubble) => {
+    const body = document.createElement('div');
+    body.className = 'text-[13.5px] text-ink leading-snug break-words';
+    body.textContent = msg.text;
+    bubble.appendChild(body);
+  });
+}
+
+// meta: { name, mime, size, nickname, id, ts, ... }, url: local/object URL for preview or download
+function renderFileMessage(meta, isLocal, url) {
+  renderMessageRow(meta, isLocal, (bubble) => {
+    const mime = meta.mime || '';
+    if (mime.startsWith('image/')) {
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = meta.name;
+      img.className = 'rounded-lg max-w-full max-h-72 object-contain cursor-zoom-in';
+      img.addEventListener('click', () => window.open(url, '_blank'));
+      bubble.appendChild(img);
+    } else if (mime.startsWith('video/')) {
+      const vid = document.createElement('video');
+      vid.src = url;
+      vid.controls = true;
+      vid.className = 'rounded-lg max-w-full max-h-72';
+      bubble.appendChild(vid);
+    } else {
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = meta.name;
+      link.target = '_blank';
+      link.className = 'flex items-center gap-2.5 bg-panel2/60 border border-line rounded-lg px-3 py-2.5 hover:border-signal/50 transition-colors';
+      link.innerHTML = `
+        <div class="w-8 h-8 rounded-lg bg-signal/10 flex items-center justify-center text-signal text-sm shrink-0">📄</div>
+        <div class="min-w-0">
+          <div class="text-[12.5px] text-ink truncate max-w-[160px]">${escapeHtml(meta.name)}</div>
+          <div class="mono text-[10px] text-faint">${humanFileSize(meta.size)} · tap to open</div>
+        </div>
+      `;
+      bubble.appendChild(link);
+    }
+    if (mime.startsWith('image/') || mime.startsWith('video/')) {
+      const caption = document.createElement('div');
+      caption.className = 'mono text-[10px] text-faint/70 mt-1 truncate max-w-[220px]';
+      caption.textContent = `${meta.name} · ${humanFileSize(meta.size)}`;
+      bubble.appendChild(caption);
+    }
+  });
+}
+
+function renderSystemMessage(text) {
+  state.lastRenderedKey = null; // force next chat message to show header again
+  const list = $('messageList');
+  const wrap = document.createElement('div');
+  wrap.className = 'rise-in flex justify-center my-2';
+  const pill = document.createElement('div');
+  pill.className = 'mono text-[10.5px] text-faint bg-panel2 border border-line rounded-full px-3 py-1';
+  pill.textContent = text;
+  wrap.appendChild(pill);
+  list.appendChild(wrap);
+  autoScroll();
+}
+
+function autoScroll() {
+  const list = $('messageList');
+  requestAnimationFrame(() => { list.scrollTop = list.scrollHeight; });
+}
+</script>
+</body>
+</html>
